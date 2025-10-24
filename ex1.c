@@ -1,8 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
+void voteReg();
 
 int main() {
+
+voteReg();
+
+return 0;
+}
+
+
+void voteReg(){
 
         char id[15]; //voter's id numbers
         char vName[50];  //voter's name
@@ -83,19 +92,44 @@ int main() {
         printf("X: Exit\n");
         printf("------------------------------------\n");
 
+
+
+
+        
+
+        FILE *nameId = fopen("nameId.txt", "r");  // Use "r" for reading
+    if (nameId == NULL) {
+        printf("Error opening file for reading!\n");
+        return;
+    }
+    
+    char line[200];
+    printf("\n=== READING nameId.txt FILE ===\n");
+    
+    while (fgets(line, sizeof(line), nameId) != NULL) {
+        printf("%s", line);
+    }
+    
+    fclose(nameId);
+
+
+
+
+
+
         printf("enter your choise(eg:-A,B,...,X) : ");
         scanf(" %c",&party);
 
         FILE *votersdata=fopen("votersdata.txt","a+");
         if (votersdata==NULL){
             printf("Error Opening file !\n");
-            return 1;
+            return;
         }
 
         FILE *votes=fopen("votes.txt","a+");
         if (votes==NULL){
             printf("Error Opening file !\n");
-            return 1;
+            return;
         }
 
         switch(party){
@@ -259,7 +293,4 @@ int main() {
 
     }
 
-
-
-    return 0;
 }
