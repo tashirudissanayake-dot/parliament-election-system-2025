@@ -11,7 +11,6 @@ return 0;
 }
 
 
-
 void voteReg(){
 
         char id[15]; //voter's id numbers
@@ -115,7 +114,7 @@ void voteReg(){
 
 
 
-        printf("\venter your party(eg:-A,B,...,X) : ");
+        printf("\nenter your party(eg:-A,B,...,X) : ");
         scanf(" %c",&party);
 
         FILE *votersdata=fopen("votersdata.txt","a+");
