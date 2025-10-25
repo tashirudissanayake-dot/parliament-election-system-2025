@@ -11,6 +11,7 @@ return 0;
 }
 
 
+
 void voteReg(){
 
         char id[15]; //voter's id numbers
@@ -55,7 +56,7 @@ void voteReg(){
        
         printf("\nIs citizenship in Sri Lanka? (type \"y\" for yes and \"n\" for no) : ");              //cititionship
         scanf(" %c",&citizenship);//skip the enter using that space " c%"
-            if(citizenship=='n' || citizenship=='N'){
+            if(citizenship=='n'||citizenship=='N'){
                 printf("\n--- You can't vote ---\n");
             }else if(citizenship!='y'&&citizenship!='Y'){
                 printf("\n--- invalid input ---\n");
@@ -63,7 +64,7 @@ void voteReg(){
 
         printf("\nIs your district Matara? (type \"y\" for yes and \"n\" for no) : ");                 //district
         scanf(" %c",&district);
-            if(district=='n' || district=='N'){
+            if(district=='n'||district=='N'){
                 printf("\n--- You can't vote ---\n");
             }else if(district!='y'&&district!='Y'){
                 printf("\n--- invalid input ---\n");
@@ -97,16 +98,13 @@ void voteReg(){
 
         
 
-        FILE *nameId = fopen("nameId.txt", "r");  // Use "r" for reading
-    if (nameId == NULL) {
-        printf("Error opening file for reading!\n");
+        FILE *nameId=fopen("nameId.txt","r");    // r for reading
+    if(nameId==NULL){
+        printf("Error Opening file !\n");
         return;
     }
-    
-    char line[200];
-    printf("\n=== READING nameId.txt FILE ===\n");
-    
-    while (fgets(line, sizeof(line), nameId) != NULL) {
+    char line[200];    
+    while(fgets(line,sizeof(line),nameId)!=NULL){
         printf("%s", line);
     }
     
@@ -117,7 +115,7 @@ void voteReg(){
 
 
 
-        printf("enter your choise(eg:-A,B,...,X) : ");
+        printf("\venter your party(eg:-A,B,...,X) : ");
         scanf(" %c",&party);
 
         FILE *votersdata=fopen("votersdata.txt","a+");
@@ -136,10 +134,10 @@ void voteReg(){
             case 'A' :
             case 'a' :     
                 choice='A';
-                printf("select a candidate : ");
+                printf("\nselect a candidate : ");
                 scanf("%d",&candidate);
-                    if(candidate>=1&&candidate<=5){
-                    printf("You selected party was : Sri Lanka Podujana Peramuna\nYou selected candidate was : %i",candidate);
+                    if(candidate>=1&&candidate<=5){  // a's candidates are in 1-5
+                    printf("\nYou selected party was : Sri Lanka Podujana Peramuna\n\nYou selected candidate was : %i\v\v",candidate);
                     
                     // Save votersdaat to votersdata.txt
                     fprintf(votersdata,"\nID Number : %s\n",id);
@@ -167,8 +165,8 @@ void voteReg(){
                 choice='B';
                 printf("select a candidate : ");
                 scanf("%i",&candidate);
-                    if(candidate>=6&&candidate<=10){
-                    printf("You selected party was : Samagi Jana Balawegaya\nYou selected candidate was : %i",candidate);
+                    if(candidate>=6&&candidate<=10){ // b's candidates are in 6-10
+                    printf("\nYou selected party was : Samagi Jana Balawegaya\n\nYou selected candidate was : %i\v\v",candidate);
                     
                     // Save votersdaat to votersdata.txt
                     fprintf(votersdata,"\nID Number : %s\n",id);
@@ -196,7 +194,7 @@ void voteReg(){
                 printf("select a candidate : ");
                 scanf("%i",&candidate);
                     if(candidate>=11&&candidate<=15){
-                    printf("You selected party was : United National Party\nYou selected candidate was : %i",candidate);
+                    printf("\nYou selected party was : United National Party\n\nYou selected candidate was : %i\v\v",candidate);
 
                     // Save votersdaat to votersdata.txt
                     fprintf(votersdata,"\nID Number : %s\n",id);
@@ -224,7 +222,7 @@ void voteReg(){
                 printf("select a candidate : ");
                 scanf("%i",&candidate);
                     if(candidate>=16&&candidate<=20){
-                    printf("You selected party was : National People Power\nYou selected candidate was : %i",candidate);
+                    printf("\nYou selected party was : National People Power\n\nYou selected candidate was : %i\v\v",candidate);
                     
                     // Save votersdaat to votersdata.txt
                     fprintf(votersdata,"\nID Number : %s\n",id);
@@ -252,7 +250,7 @@ void voteReg(){
                 printf("select a candidate : ");
                 scanf("%i",&candidate);
                     if(candidate>=21&&candidate<=25){
-                    printf("You selected party was : Sarwajana Balaya\nYou selected candidate was : %i",candidate);
+                    printf("\nYou selected party was : Sarwajana Balaya\n\nYou selected candidate was : %i\v\v",candidate);
                     
                     // Save votersdaat to votersdata.txt
                     fprintf(votersdata,"\nID Number : %s\n",id);
