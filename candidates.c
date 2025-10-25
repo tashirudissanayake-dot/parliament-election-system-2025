@@ -62,7 +62,7 @@ void candidatesReg()
             continue;
         }
 
-    printf("\nEnter the your nationality(eg:-sri_lanka):\n\n");
+    printf("\nEnter the your nationality(eg-sri lanka):\n\n");
     scanf(" %[^\n]", country);
 
     printf("\nEnter the your district:\n\n");
@@ -252,8 +252,10 @@ void candidatesReg()
             fprintf(candidatesdata, "------------------------------------\n");
             fprintf(candidatesdata,"\n\n");
             fclose(candidatesdata);
-             fprintf(nameId,"\nName :\t%s\n",name);
-            fprintf(nameId,"\nCandidate Registration Number :\t%d\n",count);
+            fprintf(nameId,"\nName :\t%s\n",name);
+            fprintf(nameId,"\nCandidate Registration Number :\t%d\n",candidatecount);
+            fprintf(nameId,"\nParty :\t%s\v",answer);
+
             fclose(nameId);
            
 
