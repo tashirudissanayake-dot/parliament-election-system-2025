@@ -1,6 +1,14 @@
 #include<stdio.h>
 #include<string.h>
 #include <stdlib.h>
+void candidatesReg();
+
+int main()
+{
+    candidatesReg();
+    return 0;
+}
+
 
 void candidatesReg()
 {
@@ -24,7 +32,7 @@ void candidatesReg()
     printf("     CANDIDATE REGISTRATION FORM\n");
     printf("====================================\n");
 
-    printf("Enter your name(eg:-mahinda_rajapaksha):\n\n");
+    printf("Enter your name:\n\n");
     scanf(" %[^\n]", name);
 
     printf("\nEnter your national id card number:\n\n");
@@ -102,6 +110,7 @@ void candidatesReg()
             scanf(" %c",&party);
             printf("\n");
 
+            int candidatecount=0;
 
             if(party=='A'||party=='a')
             {
@@ -110,6 +119,7 @@ void candidatesReg()
                     printf("You choose the Sri Lanka Podujana Peramuna\n");
                     strcpy(answer, "Sri Lanka Podujana Peramuna");
                     countA++;
+                    candidatecount=0+countA;
                 }
                 else
                 {
@@ -125,6 +135,7 @@ void candidatesReg()
                     printf("You choose the Samagi Jana Balawegaya\n");
                     strcpy(answer, "Samagi Jana Balawegaya");
                     countB++;
+                    candidatecount=5+countB;
                 }
                 else
                 {
@@ -141,6 +152,7 @@ void candidatesReg()
                     printf("You choose the United National Party\n");
                     strcpy(answer, "United National Party");
                     countC++;
+                    candidatecount=10+countC;
                 }
                 else
                 {
@@ -156,6 +168,7 @@ void candidatesReg()
                     printf("You choose the National People Power\n");
                     strcpy(answer, "National People Power");
                     countD++;
+                    candidatecount=15+countD;
                 }
                 else
                 {
@@ -171,6 +184,7 @@ void candidatesReg()
                     printf("You choose the Sarwajana Balaya\n");
                     strcpy(answer, "Sarwajana Balaya");
                     countE++;
+                    candidatecount=20+countE;
                 }
                 else
                 {
@@ -209,6 +223,13 @@ void candidatesReg()
             /*FILE *clearFile = fopen("candidatesdata.txt", "w");
             fclose(clearFile);*/
 
+            FILE *nameId;
+                nameId=fopen("nameId.txt","a+");//changed "a+" to "w"
+                if (nameId == NULL)
+                {
+                    printf("Error Opening file !\n");
+                    return;
+                }
 
             FILE *candidatesdata;
             candidatesdata=fopen("candidatesdata.txt","a+");//changed "a+" to "w"
@@ -227,15 +248,18 @@ void candidatesReg()
             fprintf(candidatesdata,"\ndistrict :%s\n",district);
             fprintf(candidatesdata,"\nAge :\t%d\n",age);
             fprintf(candidatesdata,"\nParty :\t%s\n",answer);
-            fprintf(candidatesdata,"\nCandidate Registration Number :\t%d\n",count);
+            fprintf(candidatesdata,"\nCandidate Registration Number :\t%d\n",candidatecount);
             fprintf(candidatesdata, "------------------------------------\n");
             fprintf(candidatesdata,"\n\n");
             fclose(candidatesdata);
+             fprintf(nameId,"\nName :\t%s\n",name);
+            fprintf(nameId,"\nCandidate Registration Number :\t%d\n",count);
+            fclose(nameId);
            
 
          printf("\n\t***You are registered***\n\t");  
 
-         printf("\n\tYour candidate number is:%d\n\n",count);
+         printf("\n\tYour candidate number is:%d\n\n",candidatecount);
 
          printf("Remaining registration slots: %d\n\n", 25 - count);
 
@@ -298,8 +322,3 @@ printf("\n--- Registration Closed ---\n");
 
 }
 
-int main()
-{
-    candidatesReg();
-    return 0;
-}
