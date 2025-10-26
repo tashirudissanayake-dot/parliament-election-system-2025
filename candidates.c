@@ -267,15 +267,7 @@ void candidatesReg()
 
         
 
-        /*FILE *file = fopen("candidatesdata.txt", "r");
-        if (file) {
-             char line[200];
-             printf("\n--- Registered Candidates ---\n");
-             while (fgets(line, sizeof(line), file)) {
-                  printf("%s", line);
-        }
-        fclose(file);
-    }*/
+       
 //system("cls");
 printf("             Final Party Summary\n");
 printf("----------------------------------------------\n");
@@ -323,4 +315,3 @@ if(count==25)
 printf("\n--- Registration Closed ---\n");
 
 }
-
