@@ -13,8 +13,8 @@ int main()
 
     for (int i = 1; i > 0; ++i)
     {
-        system("cls");          // clear screen
-        system("color 0B");     //  text color
+        //system("cls");          // clear screen
+        //system("color 0B");     //  text color
 
         printf("\n");
         printf("==================================================\n");
@@ -34,25 +34,25 @@ int main()
 
         if (type == 1)
         {
-            system("cls");
+            //system("cls");
             printf("\n Redirecting to Admin Panel...\n\n");
             admin();
         }
         else if (type == 2)
         {
-            system("cls");
+            //system("cls");
             printf("\n Redirecting to Candidate Registration...\n\n");
             candidatesReg();
         }
         else if (type == 3)
         {
-            system("cls");
+            //system("cls");
             printf("\n Redirecting to Voter Registration...\n\n");
             voteReg();
         }
         else if (type == 4)
         {
-            system("cls");
+            //system("cls");
             printf("\n Displaying Election Results...\n\n");
             showElectionResults();
         }
@@ -66,7 +66,7 @@ int main()
         else
         {
             printf("\n  Invalid Entry! Please try again.\n\n");
-            system("pause");
+            //system("pause");
         }
     }
 
@@ -114,7 +114,7 @@ void candidatesReg()
     if(strlen(nic)!=10 && strlen(nic)!=12)          //checking nic validation
     {
         printf("\n ---Invalid ID Number---\n");
-        system("pause");
+        //system("pause");
         continue;
     }
 
@@ -142,7 +142,7 @@ void candidatesReg()
     if(strcmp(district, "matara") != 0 && strcmp(district, "MATARA") != 0 && strcmp(district, "Matara") != 0)                 //cheking citizenship
     {
         printf("\n--- Your district is not eligible for registration ---\n");
-        system("pause");
+        //system("pause");
         continue;
 
     }
@@ -372,7 +372,7 @@ printf("----------------------------------------------");
 
     printf("\nThank you for using the registration system!\n");
 
-system("pause");
+//system("pause");
 
 }
 if(count==25)
